@@ -2,7 +2,7 @@ function showNumber(num){
     if(document.getElementById('display').innerText == 0){
         document.getElementById('display').innerText = num;
     }
-    else{
+    else if(document.getElementById('display').innerText.length < 13){
         document.getElementById('display').innerText += num;
     }
     // if(document.getElementById('display').innerText == 0){
@@ -19,5 +19,25 @@ function clr(){
     document.getElementById('display').innerText = '0';
 }
 function del(){
-    document.getElementById('display').innerText = document.getElementById('display').innerText.substr(document.getElementById('display').value-1, 0)
+    const inp = document.getElementById('display');
+    if(inp.innerText.length > 1){
+        inp.innerText = inp.innerText.slice(0,-1);
+    } else{
+        inp.innerText = '0';
+    }
 }
+// const maxDigits = 10;
+// const display = document.getElementById('display');
+// function showNumber(num) {
+//     if(display.innerText.length < maxDigits) {
+//         if(document.getElementById('display').innerText == 0){
+//             document.getElementById('display').innerText = num;
+//         }
+//         else{
+//             document.getElementById('display').innerText += num;
+//         }
+//     }else{
+//         // console.log('Maximum digit limit reached!');
+//         display.innerText += num;
+//     }
+// }
